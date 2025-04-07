@@ -44,10 +44,10 @@ function ExperienceAndProjects() {
 
   return (
     <MainLayout>
-      <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen py-12 px-2 md:4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Tab Navigation */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center md:mb-12 mb-4">
             <div className="inline-flex rounded-lg bg-gray-100 p-1">
               <button
                 onClick={() => setActiveTab('experience')}
@@ -79,7 +79,7 @@ function ExperienceAndProjects() {
                     key={exp.id}
                     className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <div className="p-8">
+                    <div className="md:p-8 p-6">
                       <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center">
                           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-50 mr-4">
@@ -133,7 +133,7 @@ function ExperienceAndProjects() {
                     key={project.id}
                     className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <div className="p-8">
+                    <div className="md:p-8 p-6">
                       <div className="flex items-center mb-6">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50 mr-4">
                           {project.icon}

@@ -9,6 +9,7 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   const [activeMenu, setActiveMenu] = useState('Profile')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
   
@@ -30,15 +31,34 @@ function MainLayout({ children }: MainLayoutProps) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
   
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
+  
   const handleMenuClick = (menu: string, path: string) => {
     setActiveMenu(menu)
     router.push(path)
   }
   
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+  
   return (
     <>
-      <div className='flex'>
-        <div className='w-1/4 h-[100vh] bg-gray-500 object-cover border-r-8 border-red-400'>
+      <div className='flex flex-col md:flex-row'>
+        {/* Mobile hamburger menu button */}
+        <div className='md:hidden fixed top-4 left-4 z-50 bg-red-400 rounded-full p-3 shadow-lg' onClick={toggleMobileMenu}>
+          <div className='w-6 h-0.5 bg-white mb-1.5'></div>
+          <div className='w-6 h-0.5 bg-white mb-1.5'></div>
+          <div className='w-6 h-0.5 bg-white'></div>
+        </div>
+        
+        {/* Sidebar - hidden on mobile unless menu is opened */}
+        <div 
+          className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block md:w-1/4 h-screen bg-gray-500 object-cover border-r-8 border-red-400 fixed md:relative w-full z-40 transition-all duration-300`}
+        >
           <Image className='mt-6 mx-auto rounded-full border-4 border-gray-400' src="/116530462027-1.jpg" alt="" width={150} height={150} />
           <div className='leading-2'>
             <h1 className='text-center text-xl font-bold mt-5'>Kriattiphum Phokar</h1>
@@ -58,7 +78,11 @@ function MainLayout({ children }: MainLayoutProps) {
             </ul>
           </div>
         </div>
-        <div className="w-3/4 bg-gray-300">{children}</div>
+        
+        {/* Main content */}
+        <div className="w-full md:w-3/4 bg-gray-300 min-h-screen pt-4 md:pt-0">
+          {children}
+        </div>
       </div>
     </>
   )

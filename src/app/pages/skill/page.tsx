@@ -49,8 +49,8 @@ function Skill() {
 
   return (
     <MainLayout>
-      <div className="h-screen flex flex-col p-8">
-        <div className="max-w-5xl w-full mx-auto bg-white rounded-xl shadow-lg p-8 flex-grow flex flex-col overflow-hidden">
+      <div className="h-screen flex flex-col md:p-8 p-2 pt-12">
+        <div className="max-w-5xl w-full mx-auto bg-white rounded-xl shadow-lg md:p-8 p-4 flex-grow flex flex-col overflow-hidden">
 
           {/* Tabs */}
           <div className="flex border-b border-gray-200 mb-6">
