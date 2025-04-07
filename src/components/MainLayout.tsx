@@ -8,7 +8,7 @@ interface MainLayoutProps {
 }
 
 function MainLayout({ children }: MainLayoutProps) {
-  const [activeMenu, setActiveMenu] = useState('')
+  const [activeMenu, setActiveMenu] = useState('Profile')
   const router = useRouter()
   const pathname = usePathname()
   
@@ -38,7 +38,7 @@ function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <div className='flex'>
-        <div className='w-1/4 h-[100vh] bg-gray-500 object-cover'>
+        <div className='w-1/4 h-[100vh] bg-gray-500 object-cover border-r-8 border-red-400'>
           <Image className='mt-6 mx-auto rounded-full border-4 border-gray-400' src="/116530462027-1.jpg" alt="" width={150} height={150} />
           <div className='leading-2'>
             <h1 className='text-center text-xl font-bold mt-5'>Kriattiphum Phokar</h1>

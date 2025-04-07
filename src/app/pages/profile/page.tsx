@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import MainLayout from '@/components/MainLayout'
 import Image from 'next/image'
-import { User, Github, Mail, Phone, MapPin, FileText , ChevronUp, Facebook, Instagram } from 'lucide-react'
+import Animation from '@/components/Animation'
+import { User, Github, Mail, Phone, MapPin, FileText, ChevronUp, Facebook, Instagram } from 'lucide-react'
 
 function Profile() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +44,7 @@ function Profile() {
         {/* Main Content */}
         <div className="flex-1 overflow-y-auto">
           {/* Content */}
-          <div className="pt-6 pb-16 px-4 max-w-6xl mx-auto">
+          <div className="pt-6 pb-10 px-4 max-w-6xl mx-auto">
             {/* Profile Card */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-xl">
               {/* Hero Background with Animated Gradient */}
@@ -143,12 +144,13 @@ function Profile() {
                 </div>
               </div>
 
-              {/* Footer with Animation
-              <div className="bg-gray-50 px-8 py-4 border-t border-gray-100">
-                <div className="text-center text-gray-500 text-sm">
-                  <p>&copy; {new Date().getFullYear()} สมชาย รักเรียน | นักพัฒนาซอฟต์แวร์</p>
-                </div>
-              </div> */}
+
+            </div>
+
+          </div>
+          <div className="px-8 py-2">
+            <div className="text-center text-gray-500 text-4xl">
+              <Animation />
             </div>
           </div>
         </div>

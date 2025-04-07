@@ -68,6 +68,7 @@ function Certificate() {
             <div
               key={certificate.id}
               className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300  hover:cursor-pointer hover:scale-105 transform"
+              onClick={() => openModal(certificate)}
             >
               <div className="relative">
                 <img
@@ -111,7 +112,7 @@ function Certificate() {
               <h3 className="text-xl font-bold">{viewingCertificate.title}</h3>
               <button 
                 onClick={closeModal}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 cursor-pointer transition-colors duration-200"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -133,7 +134,7 @@ function Certificate() {
               </div>
               <button 
                 onClick={closeModal}
-                className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md"
+                className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md cursor-pointer transition-colors duration-200"
               >
                 Close
               </button>
