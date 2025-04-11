@@ -43,7 +43,7 @@ export default function AnimatedName() {
     return (
         <div>
             <div className="text-center p-4 rounded-lg bg-gray-800 shadow-2xl">
-                <h1 className="text-5xl font-bold">
+                <h1 className="md:text-5xl text-2xl font-bold">
                     {fullName.split('').map((letter, index) => {
                         // Only show letters that should be visible
                         if (index >= visibleLetters) {
