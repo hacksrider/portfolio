@@ -1,0 +1,108 @@
+{
+    "name": "Kriattiphum Phokar",
+
+    "Profile": "Profile",
+    "Education": "Education",
+    "Skills": "Skill & Programs",
+    "Experian": "Experian & Projects",
+    "Certificatete": "Certificatete",
+    "Portfolio": "Portfolio",
+
+    "MyProfessionalCertificates": "My Professional Certificates",
+    "date1": "11 April 2024",
+    "ProgrammingTestCertification1": "Programming Test Certification",
+    "issuer1": "Born to Dev",
+    "date2": "21 February 2021",
+    "ProgrammingTestCertification2": "Test HSK Level 2",
+    "issuer2": "Confucius Institute at Chiang Mai University",
+    "date3": "05 December 2019",
+    "ProgrammingTestCertification3": "ประกวดสิ่งประดิษฐ์",
+    "issuer3": "สำนักงานคณะกรรมการอาชีวะศึกษา",
+    
+    "clickImage": "clickimage",
+    "RMUTT1": "RMUTT",
+    "level1": "Bachelor's degree level",
+    "educationInfo1": "Education Information",
+    "educationLevel1": "Education Level: ",
+    "faculty1": "Faculty: ",
+    "program1": "Program: ",
+    "graduationDate1": "Graduation Date: ",
+    "gpa1": "GPA: ",
+    "educationLevelValue1": "Bachelor's Degree (Credit Transfer, Regular Program)",
+    "facultyValue1": "Faculty of Engineering",
+    "programValue1": "Computer Engineering",
+    "graduationDateValue1": "March 31, 2025",
+    "gpaValue1": "3.35",
+
+    "RMUTT2": "SNKTC",
+    "level2": "Higher Vocational Certificate",
+    "educationInfo2": "Education Information",
+    "educationLevel2": "Education Level: ",
+    "major2": "Major: ",
+    "program2": "Program: ",
+    "graduationDate2": "Graduation Date: ",
+    "gpa2": "GPA: ",
+    "educationLevelValue2": "Higher Vocational Certificate",
+    "majorValue2": "Electrical Power",
+    "programValue2": "Electrical Power Industry",
+    "graduationDateValue2": "March 31, 2022",
+    "gpaValue2": "3.71",
+
+    "RMUTT3": "SNKTC",
+    "level3": "Higher Vocational Certificate",
+    "educationInfo3": "Education Information",
+    "educationLevel3": "Education Level: ",
+    "major3": "Major: ",
+    "program3": "Program: ",
+    "graduationDate3": "Graduation Date: ",
+    "gpa3": "GPA: ",
+    "educationLevelValue3": "Vocational Certificate",
+    "majorValue3": "Electrical Power",
+    "programValue3": "Electrical Power Industry",
+    "graduationDateValue3": "March 31, 2020",
+    "gpaValue3": "3.50",
+
+    "experian" : "Experian",
+    "project" : "Project",
+
+    "company" : "AO Soft company",
+    "position" : "Web Developer",
+    "year" : "2567",
+    "responsibilitie" : "Responsibilities : ",
+    "responsibilities": [
+        "Researched and identified website development topics based on client interests",
+        "Developed client websites focusing on front-end design and usability",
+        "Built backend systems to enable client-side website management",
+        "Handled domain configuration and deployed websites to hosting platforms"
+        ],
+
+    "title": "Football Field Booking and Exercise Services Purchase Management System",
+    "technology" : "Technology used:",
+    "technologies": "Next.js, TypeScript, TailwindCSS, Prisma ORM, MySQL",
+    "feature" : "Features",
+    "features": [
+        "User and admin login system",
+        "Online football field booking by date and time",
+        "Exercise service purchasing with selectable usage dates",
+        "Admin dashboard for managing and reviewing bookings"
+        ],
+    
+    "MyPortfolio" : "My Portfolio",
+    "FeaturedProjects" : "Featured Projects",
+    "AllProjects" : "All Projects",
+
+    "skills" : "Skills",
+    "Programs" : "Programs",
+
+    "Advanced" : "Advanced",
+    "Intermediate" : "Intermediate",
+    "Beginner" : "Beginner",
+
+    "nameProfile" : "Kriattiphum Phokar (Hacks)",
+    "address" : "Sakon Nakhon, Thailand",
+
+    "AboutMe" : "About Me",
+    "About" : "Hello, my name is Hacks. I am 23 years old. I am a web developer with a strong interest in building and developing websites. With a background in Computer Engineering, I specialize in Frontend Web Development and have a solid foundation in Backend Web Development. I also have hands-on experience through an internship in Web Development. I am seeking an opportunity to work, improve my skills, and grow in this career field."
+
+
+}

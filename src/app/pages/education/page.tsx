@@ -24,7 +24,7 @@ const ImageModal = ({ isOpen, onClose, imageUrl, altText }) => {
                     onClick={onClose}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="18" y1="6" x2="6" y2="18"></line> 
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
@@ -50,7 +50,7 @@ const ClickableImage = ({ src, alt, className }) => {
     return (
         <>
             <div 
-                className="relative w-full h-24 sm:h-54 cursor-pointer"
+                className="relative w-full h-[200px] sm:h-54 cursor-pointer"
                 onClick={() => setModalOpen(true)}
             >
                 <Image 
@@ -76,7 +76,8 @@ const ClickableImage = ({ src, alt, className }) => {
 function Education() {
     return (
         <MainLayout>
-            <div className='h-screen flex flex-col'>
+            {/* <div className="py-8 px-4 max-w-7xl mx-auto"></div> */}
+            <div className='py-4 px-4 max-w-7xl mx-auto'>
                 <div className='flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 py-4 overflow-auto'>
                     <Card className='flex flex-col pb-0 hover:shadow-2xl hover:shadow-slate-400 bg-amber-100 hover:cursor-pointer transition-transform duration-300 hover:scale-[0.98]'>
                         <CardHeader className='pb-2'>
