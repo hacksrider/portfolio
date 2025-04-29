@@ -19,22 +19,22 @@ function Skill() {
     { name: 'CSS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaCss3Alt className="text-6xl text-blue-600" /> },
     { name: 'PHP', level: 'Beginner', color: 'text-blue-500', percentage: 40, icon: <FaPhp className="text-6xl text-purple-600" /> },
     { name: 'Java Script', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaJs className="text-6xl text-yellow-500" /> },
-    { name: 'Next.JS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiNextdotjs className="text-6xl text-black" /> },
+    { name: 'Next.JS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiNextdotjs className="text-6xl text-black" /> },
     { name: 'React.JS', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaReact className="text-6xl text-blue-400" /> },
     { name: 'Typescript', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiTypescript className="text-6xl text-blue-700" /> },
     { name: 'TailwindCSS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiTailwindcss className="text-6xl text-teal-500" /> },
     { name: 'Prisma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <SiPrisma className="text-6xl text-teal-600" /> },
     { name: 'Node.js', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaNodeJs className="text-6xl text-green-600" /> },
-    { name: 'MySql', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaDatabase className="text-6xl text-blue-800" /> }
+    { name: 'MySql', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <FaDatabase className="text-6xl text-blue-800" /> }
   ]
 
   const programs = [
-    { name: 'Visual Studio Code', level: 'Advanced', color: 'text-orange-500', percentage: 90, icon: <VscCode className="text-6xl text-blue-500" /> },
-    { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiPostman className="text-6xl text-orange-500" /> },
-    { name: 'Github', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaGithub className="text-6xl text-gray-800" /> },
-    { name: 'Microsoft 365', level: 'Advanced', color: 'text-orange-500', percentage: 80, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
+    { name: 'Visual Studio Code', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <VscCode className="text-6xl text-blue-500" /> },
+    { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiPostman className="text-6xl text-orange-500" /> },
+    { name: 'Github', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaGithub className="text-6xl text-gray-800" /> },
+    { name: 'Microsoft 365', level: 'Intermediate', color: 'text-orange-500', percentage: 70, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
     { name: 'Canva', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiCanva className="text-6xl text-blue-400" /> },
-    { name: 'Figma', level: 'Beginner', color: 'text-blue-500', percentage: 50, icon: <FaFigma className="text-6xl text-purple-500" /> },
+    { name: 'Figma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaFigma className="text-6xl text-purple-500" /> },
   ]
 
   const getLevelColor = (level: string) => {
