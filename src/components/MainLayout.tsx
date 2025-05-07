@@ -16,8 +16,8 @@ function MainLayout({ children }: MainLayoutProps) {
   const menuItems = [
     { name: 'Profile', path: '/pages/profile' },
     { name: 'Education', path: '/pages/education' },
-    { name: 'Skills & Programs', path: '/pages/skill' },
-    { name: 'Experian & Projects', path: '/pages/experian' },
+    { name: 'Skills & Tools', path: '/pages/skill' },
+    { name: 'Experian & Project', path: '/pages/experian' },
     { name: 'Certificate', path: '/pages/certificate' },
     { name: 'Portfolio', path: '/pages/portfolio' }
   ]

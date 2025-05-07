@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import React, { useState } from 'react'
 import MainLayout from '@/components/MainLayout'
 import { VscCode } from 'react-icons/vsc'
 import {
   FaHtml5, FaCss3Alt, FaPhp, FaJs, FaReact, FaNodeJs,
-  FaDatabase, FaGithub, FaMicrosoft, FaFigma
+  FaDatabase, FaGithub, FaMicrosoft, FaFigma,
 } from 'react-icons/fa'
 import {
   SiNextdotjs, SiTypescript, SiTailwindcss, SiPrisma,
@@ -13,6 +14,7 @@ import {
 
 function Skill() {
   const [activeTab, setActiveTab] = useState('skills')
+  const FileZilla = "/FileZilla_logo.svg"
 
   const skills = [
     { name: 'HTML', level: 'Advanced', color: 'text-orange-500', percentage: 90, icon: <FaHtml5 className="text-6xl text-orange-600" /> },
@@ -21,20 +23,21 @@ function Skill() {
     { name: 'Java Script', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaJs className="text-6xl text-yellow-500" /> },
     { name: 'Next.JS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiNextdotjs className="text-6xl text-black" /> },
     { name: 'React.JS', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaReact className="text-6xl text-blue-400" /> },
-    { name: 'Typescript', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiTypescript className="text-6xl text-blue-700" /> },
+    { name: 'Typescript', level: 'Beginner', color: 'text-blue-500', percentage: 59, icon: <SiTypescript className="text-6xl text-blue-700" /> },
     { name: 'TailwindCSS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiTailwindcss className="text-6xl text-teal-500" /> },
     { name: 'Prisma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <SiPrisma className="text-6xl text-teal-600" /> },
     { name: 'Node.js', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaNodeJs className="text-6xl text-green-600" /> },
-    { name: 'MySql', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <FaDatabase className="text-6xl text-blue-800" /> }
+    { name: 'MySql', level: 'Beginner', color: 'text-blue-500', percentage: 50, icon: <FaDatabase className="text-6xl text-blue-800" /> }
   ]
 
   const programs = [
     { name: 'Visual Studio Code', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <VscCode className="text-6xl text-blue-500" /> },
     { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiPostman className="text-6xl text-orange-500" /> },
-    { name: 'Github', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <FaGithub className="text-6xl text-gray-800" /> },
-    { name: 'Microsoft 365', level: 'Intermediate', color: 'text-orange-500', percentage: 70, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
+    { name: 'Github', level: 'Beginner', color: 'text-blue-500', percentage: 59, icon: <FaGithub className="text-6xl text-gray-800" /> },
+    { name: 'Microsoft 365', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
     { name: 'Canva', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiCanva className="text-6xl text-blue-400" /> },
     { name: 'Figma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaFigma className="text-6xl text-purple-500" /> },
+    { name: 'FileZilla', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <img src={FileZilla} alt="FileZilla" className="w-14 h-14 text-6xl text-purple-500" /> },
   ]
 
   const getLevelColor = (level: string) => {
@@ -70,7 +73,7 @@ function Skill() {
                 : 'text-gray-500 hover:text-blue-500'
                 }`}
             >
-              PROGRAMS
+              TOOLS
             </button>
           </div>
 
