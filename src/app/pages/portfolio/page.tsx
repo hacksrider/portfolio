@@ -74,102 +74,188 @@ function Portfolio() {
 
   return (
     <MainLayout>
-      <div className="py-8 px-4 max-w-7xl mx-auto">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
-            {/* <span className="block">My Portfolio</span> */}
-            <span className="block text-indigo-600 dark:text-indigo-400">My Portfolio</span>
-          </h1>
-        </div>
+      <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Hero Section */}
+          <div className="text-center mb-16 relative">
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full blur-3xl opacity-30"></div>
+            
+            <div className="relative z-10">
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  My Portfolio
+                </span>
+              </h1>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full mx-auto shadow-lg mb-4"></div>
+              <p className="text-lg text-gray-600 font-medium">
+                รวมผลงานและโครงการที่น่าสนใจ
+              </p>
+            </div>
+          </div>
 
-        {/* Featured Projects */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Featured Projects</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.filter(project => project.featured).map((project) => (
-              <div key={project.id} className="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-xl">
-                <div className="relative h-64">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="flex space-x-4">
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="bg-indigo-600 p-3 rounded-full text-white hover:bg-indigo-700">
+          {/* Featured Projects */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Featured Projects
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {projects.filter(project => project.featured).map((project, idx) => (
+                <div 
+                  key={project.id} 
+                  className="group relative bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/20 transition-all duration-500 hover:shadow-indigo-300/50 hover:-translate-y-3 hover:scale-[1.02]"
+                  style={{animationDelay: `${idx * 0.1}s`}}
+                >
+                  {/* Decorative gradient */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  
+                  {/* Image Section */}
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    {/* Action Button */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <a 
+                        href={project.demoUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 rounded-2xl text-white font-semibold shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-110 transition-all duration-300"
+                      >
                         <ExternalLink size={20} />
+                        <span>ดูเว็บไซต์</span>
                       </a>
+                    </div>
+                    
+                    {/* Badge */}
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 px-4 py-2 rounded-full text-white font-bold text-sm shadow-lg">
+                      ⭐ Featured
+                    </div>
+                  </div>
+                  
+                  {/* Content Section */}
+                  <div className="relative z-10 p-8">
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 leading-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-5 font-medium">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, index) => (
+                        <span 
+                          key={index} 
+                          className="px-4 py-2 text-sm bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                  <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag, index) => (
-                      <span key={index} className="px-3 py-1 text-sm bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* All Projects */}
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">All Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div key={project.id} className="group bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-48">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="flex space-x-3">
+          {/* All Projects */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl shadow-lg">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                All Projects
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, idx) => (
+                <div 
+                  key={project.id} 
+                  className="group relative bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden border border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-300/30 hover:-translate-y-2"
+                  style={{animationDelay: `${idx * 0.05}s`}}
+                >
+                  {/* Decorative gradient */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  
+                  {/* Image Section */}
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    
+                    {/* Action Buttons */}
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {project.demoUrl && (
                         <a
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-indigo-600 p-2 rounded-full text-white hover:bg-indigo-700"
+                          className="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 rounded-xl text-white shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300"
+                          title="ดูเว็บไซต์"
                         >
-                          <ExternalLink size={16} />
+                          <ExternalLink size={20} />
                         </a>
                       )}
-
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-indigo-600 p-2 rounded-full text-white hover:bg-indigo-700"
+                          className="bg-gradient-to-r from-gray-700 to-gray-900 p-3 rounded-xl text-white shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300"
+                          title="ดู GitHub"
                         >
-                          <Github size={16} />
+                          <Github size={20} />
                         </a>
                       )}
                     </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{project.title}</h3>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 line-clamp-2">{project.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {project.tags.slice(0, 10).map((tag, index) => (
-                      <span key={index} className="px-2 py-1 text-xs bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
+                  
+                  {/* Content Section */}
+                  <div className="relative z-10 p-5">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-1 group-hover:text-purple-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-2 mb-4 font-medium">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.slice(0, 3).map((tag, index) => (
+                        <span 
+                          key={index} 
+                          className="px-3 py-1 text-xs bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 font-semibold rounded-lg border border-purple-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 3 && (
+                        <span className="px-3 py-1 text-xs bg-gray-100 text-gray-600 font-semibold rounded-lg">
+                          +{project.tags.length - 3} more
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
