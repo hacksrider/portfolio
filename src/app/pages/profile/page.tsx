@@ -94,7 +94,7 @@ function Profile() {
                   >
                     <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image
-                        src="/116530462027-1.jpg"
+                        src="/logo-profile.jpg"
                         alt="Avatar"
                         width={176}
                         height={176}
@@ -211,7 +211,7 @@ function Profile() {
 
                     <div className="relative bg-gradient-to-br from-white to-indigo-50/50 p-3 sm:p-4 md:p-6 pl-5 sm:pl-6 md:pl-8 rounded-xl shadow-lg sm:shadow-xl border border-indigo-100 hover:shadow-xl hover:border-indigo-200 transition-all duration-500 backdrop-blur-sm">
                       <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed font-medium">
-                      สวัสดีครับ ผมแฮ็คส์ครับ จบวิศวกรรมคอมพิวเตอร์จาก มทร.ธัญบุรี
+                      สวัสดีครับ ผมแฮ็คส์ครับ อายุ 24 ปี จบวิศวกรรมคอมพิวเตอร์จาก มทร.ธัญบุรี
                       <span className="inline-flex items-center px-2.5 py-0.5 mx-1 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-sm font-bold shadow-md">เกรด 3.35</span>
                       ตอนนี้ทำงานเป็น R&D Engineer ที่ไชโยไปป์ ชอบทำทั้งเว็บแอปและของเล่น IoT ครับ และมีความรู้ด้านไฟฟ้า จากการศึกษาระดับ ปวช.และ ปวส. ในสาขาวิชาไฟฟ้ากำลัง 5 ปี รวมทั้งประสบการณ์การทำงานจริงในช่วงปิดเทอม และการฝึกงานในช่วง ปวช. และ ปวส.
                     </p>
@@ -277,7 +277,7 @@ function Profile() {
             {/* Full-size image */}
             <div className="relative rounded-lg overflow-hidden shadow-2xl transform transition-transform duration-300 hover:scale-105">
               <Image
-                src="/116530462027-1.jpg"
+                src="/logo-profile.jpg"
                 alt="เกียรติภูมิ โภคา"
                 width={800}
                 height={800}

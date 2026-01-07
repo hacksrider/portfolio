@@ -82,7 +82,7 @@ function MainLayout({ children }: MainLayoutProps) {
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-md group-hover:blur-lg transition-all duration-300 opacity-75"></div>
               <Image 
                 className='relative mx-auto rounded-full border-4 border-white shadow-2xl transform transition-transform duration-300 group-hover:scale-105' 
-                src="/116530462027-1.jpg" 
+                src="/logo-profile.jpg" 
                 alt="Profile" 
                 width={140} 
                 height={140} 
