@@ -11,6 +11,9 @@ import {
   SiNextdotjs, SiTypescript, SiTailwindcss,
   SiPostman, SiCanva, SiArduino, SiLaravel
 } from 'react-icons/si'
+import { SiC, SiCplusplus, SiGooglecloud,  } from 'react-icons/si';
+// หรือถ้าชอบสไตล์ของ Devicons
+// import { DiCplusplus, DiVisualstudio } from 'react-icons/di';
 
 function Skill() {
   const [activeTab, setActiveTab] = useState('skills')
@@ -21,33 +24,35 @@ function Skill() {
   const Cursor = "/Cursor_logo.png"
 
   const skills = [
-    { name: 'Python', level: 'Advanced', color: 'text-orange-500', percentage: 90, icon: <FaPython className="text-6xl text-blue-500" /> },
-    { name: 'JavaScript', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaJs className="text-6xl text-yellow-500" /> },
+    { name: 'HTML', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <FaHtml5 className="text-6xl text-orange-600" /> },
     { name: 'React.JS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaReact className="text-6xl text-blue-400" /> },
+    { name: 'JavaScript', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaJs className="text-6xl text-yellow-500" /> },
     { name: 'Next.JS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiNextdotjs className="text-6xl text-black" /> },
+    { name: 'TailwindCSS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiTailwindcss className="text-6xl text-teal-500" /> },
     { name: 'PHP (Laravel)', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiLaravel className="text-6xl text-red-600" /> },
     { name: 'SQL', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaDatabase className="text-6xl text-blue-800" /> },
     { name: 'MySQL', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaDatabase className="text-6xl text-blue-800" /> },
+    { name: 'CSS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaCss3Alt className="text-6xl text-blue-600" /> },
     { name: 'TypeScript', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiTypescript className="text-6xl text-blue-700" /> },
-    { name: 'TailwindCSS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiTailwindcss className="text-6xl text-teal-500" /> },
+    { name: 'C++', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <SiCplusplus className="text-6xl text-teal-600" /> },
     { name: 'Java', level: 'Beginner', color: 'text-blue-500', percentage: 40, icon: <FaJava className="text-6xl text-orange-600" /> },
-    { name: 'Arduino IDE', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiArduino className="text-6xl text-teal-600" /> },
-    { name: 'HTML', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <FaHtml5 className="text-6xl text-orange-600" /> },
-    { name: 'CSS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaCss3Alt className="text-6xl text-blue-600" /> }
+    { name: 'C', level: 'Beginner', color: 'text-blue-500', percentage: 40, icon: <SiC className="text-6xl text-blue-500" /> },
+    { name: 'Python', level: 'Beginner', color: 'text-green-500', percentage: 30, icon: <FaPython className="text-6xl text-blue-500" /> },
   ]
 
   const programs = [
     { name: 'Visual Studio Code', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <VscCode className="text-6xl text-blue-500" /> },
     { name: 'Cursor', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <img src={Cursor} alt="Cursor" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'Git Version Control', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaGithub className="text-6xl text-gray-800" /> },
-    { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiPostman className="text-6xl text-orange-500" /> },
-    { name: 'SolidWorks', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <img src={Solidworks} alt="SolidWorks" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'AutoCAD', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <img src={Autocad} alt="AutoCAD" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'Proteus', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <img src={Proteus} alt="Proteus" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'IoT', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiArduino className="text-6xl text-teal-600" /> },
-    { name: 'FileZilla', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <img src={FileZilla} alt="FileZilla" className="w-14 h-14 text-6xl text-purple-500" /> },
+    { name: 'Git Version Control', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaGithub className="text-6xl text-gray-800" /> },
     { name: 'Microsoft 365', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
+    { name: 'AutoCAD', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <img src={Autocad} alt="AutoCAD" className="w-14 h-14 text-6xl text-purple-500" /> },
+    { name: 'ArduinoIDE', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiArduino className="text-6xl text-teal-600" /> },
     { name: 'Canva', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiCanva className="text-6xl text-blue-400" /> },
+    { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <SiPostman className="text-6xl text-orange-500" /> },
+    { name: 'Google Cloud Platform', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <SiGooglecloud className="text-6xl text-blue-600" /> },
+    { name: 'Proteus', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <img src={Proteus} alt="Proteus" className="w-14 h-14 text-6xl text-purple-500" /> },
+    { name: 'SolidWorks', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <img src={Solidworks} alt="SolidWorks" className="w-14 h-14 text-6xl text-purple-500" /> },
+    { name: 'FileZilla', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <img src={FileZilla} alt="FileZilla" className="w-14 h-14 text-6xl text-purple-500" /> },
     { name: 'Figma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaFigma className="text-6xl text-purple-500" /> },
   ]
 
