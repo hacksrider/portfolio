@@ -9,250 +9,262 @@ import {
 } from 'react-icons/fa'
 import {
   SiNextdotjs, SiTypescript, SiTailwindcss,
-  SiPostman, SiCanva, SiArduino, SiLaravel
+  SiPostman, SiCanva, SiArduino, SiLaravel, SiPrisma,
+  SiEspressif, SiMqtt, SiKicad,
 } from 'react-icons/si'
-import { SiC, SiCplusplus, SiGooglecloud,  } from 'react-icons/si';
-// หรือถ้าชอบสไตล์ของ Devicons
-// import { DiCplusplus, DiVisualstudio } from 'react-icons/di';
+import { SiC, SiCplusplus, SiGooglecloud } from 'react-icons/si'
+import { LuNetwork } from 'react-icons/lu'
+
+interface SkillItem {
+  name: string
+  level: 'Advanced' | 'Intermediate' | 'Beginner'
+  percentage: number
+  icon: React.ReactNode
+}
+
+interface CategoryGroup {
+  name: string
+  subtitle: string
+  color: 'blue' | 'teal' | 'slate' | 'gray' | 'violet' | 'amber'
+  items: SkillItem[]
+}
+
+const levelConfig: Record<string, { label: string; badge: string; bar: string }> = {
+  Advanced:     { label: 'ขั้นสูง',    badge: 'bg-blue-100 text-blue-700',   bar: 'bg-blue-500' },
+  Intermediate: { label: 'ระดับกลาง', badge: 'bg-teal-100 text-teal-700',   bar: 'bg-teal-500' },
+  Beginner:     { label: 'เริ่มต้น',   badge: 'bg-gray-100 text-gray-500',   bar: 'bg-gray-400' },
+}
+
+const colorMap: Record<string, { border: string; bg: string; text: string }> = {
+  blue:   { border: 'border-blue-500',   bg: 'bg-blue-50',   text: 'text-blue-700'  },
+  teal:   { border: 'border-teal-500',   bg: 'bg-teal-50',   text: 'text-teal-700'  },
+  slate:  { border: 'border-slate-400',  bg: 'bg-slate-50',  text: 'text-slate-700' },
+  gray:   { border: 'border-gray-400',   bg: 'bg-gray-50',   text: 'text-gray-600'  },
+  violet: { border: 'border-violet-400', bg: 'bg-violet-50', text: 'text-violet-600'},
+  amber:  { border: 'border-amber-400',  bg: 'bg-amber-50',  text: 'text-amber-700' },
+}
+
+function CategorySection({ categories }: { categories: CategoryGroup[] }) {
+  return (
+    <div className="space-y-6">
+      {categories.map((cat, idx) => {
+        const c = colorMap[cat.color]
+        return (
+          <div key={idx} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            {/* Category Header */}
+            <div className={`px-5 py-3.5 border-l-4 ${c.border} ${c.bg} flex items-center justify-between`}>
+              <div>
+                <h2 className={`font-bold text-base ${c.text}`}>{cat.name}</h2>
+                <p className="text-xs text-gray-400 mt-0.5">{cat.subtitle}</p>
+              </div>
+              <span className="text-xs text-gray-400 font-medium">{cat.items.length} รายการ</span>
+            </div>
+
+            {/* Skills Grid */}
+            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {cat.items.map((item, i) => {
+                const lv = levelConfig[item.level]
+                return (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                    <div className="flex-shrink-0 w-10 h-10 bg-white border border-gray-200 rounded-xl p-2 shadow-sm group-hover:shadow-md transition-shadow">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-center mb-1.5 gap-2">
+                        <span className="font-semibold text-sm text-gray-800 truncate">{item.name}</span>
+                        <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${lv.badge}`}>
+                          {lv.label}
+                        </span>
+                      </div>
+                      <div className="relative h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${lv.bar} transition-all duration-700`}
+                          style={{ width: `${item.percentage}%` }}
+                        />
+                      </div>
+                      <p className="text-right text-[10px] text-gray-400 mt-0.5">{item.percentage}%</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 function Skill() {
-  const [activeTab, setActiveTab] = useState('skills')
-  const FileZilla = "/FileZilla_logo.svg"
-  const Autocad = "/Autocad_logo.png"
+  const [activeTab, setActiveTab] = useState<'skills' | 'programs'>('skills')
+
+  const FileZilla  = "/FileZilla_logo.svg"
+  const Autocad    = "/Autocad_logo.png"
   const Solidworks = "/Solidworks_logo.jpg"
-  const Proteus = "/Proteus_logo.jpg"
-  const Cursor = "/Cursor_logo.png"
+  const Proteus    = "/Proteus_logo.jpg"
+  const Cursor     = "/Cursor_logo.png"
 
-  const skills = [
-    { name: 'HTML', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <FaHtml5 className="text-6xl text-orange-600" /> },
-    { name: 'React.JS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaReact className="text-6xl text-blue-400" /> },
-    { name: 'JavaScript', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <FaJs className="text-6xl text-yellow-500" /> },
-    { name: 'Next.JS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiNextdotjs className="text-6xl text-black" /> },
-    { name: 'TailwindCSS', level: 'Intermediate', color: 'text-green-500', percentage: 75, icon: <SiTailwindcss className="text-6xl text-teal-500" /> },
-    { name: 'PHP (Laravel)', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <SiLaravel className="text-6xl text-red-600" /> },
-    { name: 'SQL', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaDatabase className="text-6xl text-blue-800" /> },
-    { name: 'MySQL', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaDatabase className="text-6xl text-blue-800" /> },
-    { name: 'CSS', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaCss3Alt className="text-6xl text-blue-600" /> },
-    { name: 'TypeScript', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiTypescript className="text-6xl text-blue-700" /> },
-    { name: 'C++', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <SiCplusplus className="text-6xl text-teal-600" /> },
-    { name: 'Java', level: 'Beginner', color: 'text-blue-500', percentage: 40, icon: <FaJava className="text-6xl text-orange-600" /> },
-    { name: 'C', level: 'Beginner', color: 'text-blue-500', percentage: 40, icon: <SiC className="text-6xl text-blue-500" /> },
-    { name: 'Python', level: 'Beginner', color: 'text-green-500', percentage: 30, icon: <FaPython className="text-6xl text-blue-500" /> },
+  const skillCategories: CategoryGroup[] = [
+    {
+      name: "พัฒนาหน้าเว็บ",
+      subtitle: "Frontend Development",
+      color: "blue",
+      items: [
+        { name: 'HTML',        level: 'Advanced',      percentage: 85, icon: <FaHtml5    className="w-full h-full text-orange-500" /> },
+        { name: 'CSS',         level: 'Intermediate',  percentage: 70, icon: <FaCss3Alt  className="w-full h-full text-blue-500"   /> },
+        { name: 'JavaScript',  level: 'Intermediate',  percentage: 75, icon: <FaJs       className="w-full h-full text-yellow-500" /> },
+        { name: 'TypeScript',  level: 'Intermediate',  percentage: 65, icon: <SiTypescript className="w-full h-full text-blue-600" /> },
+        { name: 'React.JS',    level: 'Intermediate',  percentage: 75, icon: <FaReact    className="w-full h-full text-cyan-500"   /> },
+        { name: 'Next.JS',     level: 'Intermediate',  percentage: 70, icon: <SiNextdotjs className="w-full h-full text-gray-800"  /> },
+        { name: 'TailwindCSS', level: 'Intermediate',  percentage: 75, icon: <SiTailwindcss className="w-full h-full text-teal-500" /> },
+      ]
+    },
+    {
+      name: "พัฒนาระบบหลังบ้าน",
+      subtitle: "Backend Development",
+      color: "teal",
+      items: [
+        { name: 'PHP / Laravel', level: 'Intermediate', percentage: 70, icon: <SiLaravel className="w-full h-full text-red-500" /> },
+        { name: 'Prisma ORM',    level: 'Intermediate', percentage: 60, icon: <SiPrisma className="w-full h-full text-slate-800" /> },
+      ]
+    },
+    {
+      name: "ฐานข้อมูล",
+      subtitle: "Database",
+      color: "slate",
+      items: [
+        { name: 'MySQL',            level: 'Intermediate', percentage: 70, icon: <FaDatabase className="w-full h-full text-blue-700"  /> },
+        { name: 'SQL',              level: 'Intermediate', percentage: 70, icon: <FaDatabase className="w-full h-full text-slate-600" /> },
+        { name: 'Google Sheets API',level: 'Beginner',     percentage: 40, icon: <FaDatabase className="w-full h-full text-green-600" /> },
+      ]
+    },
+    {
+      name: "ภาษาโปรแกรมอื่นๆ",
+      subtitle: "Other Languages",
+      color: "gray",
+      items: [
+        { name: 'C++',    level: 'Intermediate', percentage: 60, icon: <SiCplusplus className="w-full h-full text-blue-600"  /> },
+        { name: 'C',      level: 'Beginner',     percentage: 40, icon: <SiC         className="w-full h-full text-blue-500"  /> },
+        { name: 'Python', level: 'Beginner',     percentage: 30, icon: <FaPython    className="w-full h-full text-yellow-600"/> },
+        { name: 'Java',   level: 'Beginner',     percentage: 40, icon: <FaJava      className="w-full h-full text-red-600"   /> },
+      ]
+    },
+    {
+      name: "IoT และฮาร์ดแวร์",
+      subtitle: "IoT & Hardware",
+      color: "amber",
+      items: [
+        { name: 'ESP32',              level: 'Intermediate', percentage: 60, icon: <SiEspressif className="w-full h-full text-red-600"   /> },
+        { name: 'Modbus Protocol',    level: 'Intermediate', percentage: 55, icon: <LuNetwork    className="w-full h-full text-amber-600" /> },
+        { name: 'RESTful API / MQTT', level: 'Intermediate', percentage: 60, icon: <SiMqtt       className="w-full h-full text-purple-700" /> },
+        { name: 'PCB Design (KiCad)', level: 'Beginner',     percentage: 35, icon: <SiKicad      className="w-full h-full text-[#314CB6]" /> },
+      ]
+    }
   ]
 
-  const programs = [
-    { name: 'Visual Studio Code', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <VscCode className="text-6xl text-blue-500" /> },
-    { name: 'Cursor', level: 'Advanced', color: 'text-orange-500', percentage: 85, icon: <img src={Cursor} alt="Cursor" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'Git Version Control', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaGithub className="text-6xl text-gray-800" /> },
-    { name: 'Microsoft 365', level: 'Intermediate', color: 'text-green-500', percentage: 70, icon: <FaMicrosoft className="text-6xl text-blue-600" /> },
-    { name: 'AutoCAD', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <img src={Autocad} alt="AutoCAD" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'ArduinoIDE', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiArduino className="text-6xl text-teal-600" /> },
-    { name: 'Canva', level: 'Intermediate', color: 'text-green-500', percentage: 65, icon: <SiCanva className="text-6xl text-blue-400" /> },
-    { name: 'Postman', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <SiPostman className="text-6xl text-orange-500" /> },
-    { name: 'Google Cloud Platform', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <SiGooglecloud className="text-6xl text-blue-600" /> },
-    { name: 'Proteus', level: 'Intermediate', color: 'text-green-500', percentage: 60, icon: <img src={Proteus} alt="Proteus" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'SolidWorks', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <img src={Solidworks} alt="SolidWorks" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'FileZilla', level: 'Intermediate', color: 'text-green-500', percentage: 50, icon: <img src={FileZilla} alt="FileZilla" className="w-14 h-14 text-6xl text-purple-500" /> },
-    { name: 'Figma', level: 'Beginner', color: 'text-blue-500', percentage: 45, icon: <FaFigma className="text-6xl text-purple-500" /> },
+  const toolCategories: CategoryGroup[] = [
+    {
+      name: "เครื่องมือพัฒนา",
+      subtitle: "Development Tools",
+      color: "blue",
+      items: [
+        { name: 'Visual Studio Code', level: 'Advanced',     percentage: 85, icon: <VscCode   className="w-full h-full text-blue-500"   /> },
+        { name: 'Cursor',             level: 'Advanced',     percentage: 85, icon: <img src={Cursor}    alt="Cursor"    className="w-full h-full object-contain" /> },
+        { name: 'Git',                level: 'Intermediate', percentage: 70, icon: <FaGithub  className="w-full h-full text-gray-800"   /> },
+        { name: 'Postman',            level: 'Intermediate', percentage: 60, icon: <SiPostman className="w-full h-full text-orange-500" /> },
+      ]
+    },
+    {
+      name: "คลาวด์และ Deploy",
+      subtitle: "Cloud & Deployment",
+      color: "teal",
+      items: [
+        { name: 'Google Cloud Platform', level: 'Intermediate', percentage: 50, icon: <SiGooglecloud className="w-full h-full text-blue-500" /> },
+        { name: 'FileZilla (FTP)',        level: 'Intermediate', percentage: 65, icon: <img src={FileZilla} alt="FileZilla" className="w-full h-full object-contain" /> },
+      ]
+    },
+    {
+      name: "ออกแบบ",
+      subtitle: "Design",
+      color: "violet",
+      items: [
+        { name: 'Figma', level: 'Beginner',     percentage: 45, icon: <FaFigma  className="w-full h-full text-violet-500" /> },
+        { name: 'Canva', level: 'Intermediate', percentage: 65, icon: <SiCanva  className="w-full h-full text-blue-400"   /> },
+      ]
+    },
+    {
+      name: "วิศวกรรมและ IoT",
+      subtitle: "Engineering & IoT",
+      color: "amber",
+      items: [
+        { name: 'Arduino IDE', level: 'Intermediate', percentage: 65, icon: <SiArduino  className="w-full h-full text-teal-600"   /> },
+        { name: 'KiCad',       level: 'Beginner',     percentage: 35, icon: <SiKicad className="w-full h-full text-[#314CB6]" /> },
+        { name: 'AutoCAD',     level: 'Intermediate', percentage: 65, icon: <img src={Autocad}    alt="AutoCAD"    className="w-full h-full object-contain" /> },
+        { name: 'Proteus',     level: 'Intermediate', percentage: 60, icon: <img src={Proteus}    alt="Proteus"    className="w-full h-full object-contain" /> },
+        { name: 'SolidWorks',  level: 'Intermediate', percentage: 50, icon: <img src={Solidworks} alt="SolidWorks" className="w-full h-full object-contain" /> },
+      ]
+    },
+    {
+      name: "ทั่วไป",
+      subtitle: "General",
+      color: "gray",
+      items: [
+        { name: 'Microsoft 365', level: 'Intermediate', percentage: 70, icon: <FaMicrosoft className="w-full h-full text-blue-600" /> },
+      ]
+    }
   ]
-
-  const getLevelColor = (level: string) => {
-    if (level === 'Advanced') return 'bg-gradient-to-r from-orange-400 to-orange-600'
-    if (level === 'Intermediate') return 'bg-gradient-to-r from-green-400 to-green-600'
-    return 'bg-gradient-to-r from-blue-400 to-blue-600'
-  }
-
-  const getAnimationDelay = (index: number) => {
-    return `${index * 0.1}s`
-  }
 
   return (
     <MainLayout>
-      <div className="min-h-screen flex flex-col p-3 sm:p-4 md:p-8 pt-16 sm:pt-12 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-        <div className="max-w-6xl w-full mx-auto bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-4 sm:p-6 md:p-10 flex-grow flex flex-col overflow-hidden border border-white/20">
+      <div className="min-h-screen py-6 sm:py-8 md:py-10 px-4 sm:px-5 md:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Page Header */}
+          <div className="mb-7 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">ทักษะและเครื่องมือ</h1>
+            <p className="text-gray-500 text-xs sm:text-sm mt-1.5">ความสามารถและเครื่องมือที่ใช้งานได้จริง</p>
+            <div className="h-0.5 w-14 bg-blue-600 rounded-full mt-3"></div>
+          </div>
+
+          {/* Legend */}
+          <div className="flex items-center justify-center gap-4 mb-7 flex-wrap">
+            {Object.entries(levelConfig).map(([key, val]) => (
+              <div key={key} className="flex items-center gap-1.5">
+                <span className={`w-2.5 h-2.5 rounded-full ${val.bar}`}></span>
+                <span className="text-xs text-gray-500">{val.label}</span>
+              </div>
+            ))}
+          </div>
 
           {/* Tabs */}
-          <div className="flex gap-1.5 sm:gap-2 mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 p-1 sm:p-1.5 md:p-2 rounded-xl sm:rounded-2xl">
+          <div className="flex gap-1.5 mb-8 bg-white p-1.5 rounded-xl border border-gray-200 shadow-sm w-fit mx-auto">
             <button
               onClick={() => setActiveTab('skills')}
-              className={`flex-1 px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-bold text-xs sm:text-sm md:text-base rounded-lg sm:rounded-xl transition-all duration-300 cursor-pointer ${activeTab === 'skills'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-300/50 scale-105'
-                : 'text-gray-600 hover:text-indigo-600 hover:bg-white/50'
-                }`}
+              className={`px-7 py-2.5 font-semibold text-sm rounded-lg transition-all duration-200 ${
+                activeTab === 'skills'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+              }`}
             >
-              <span className="flex items-center justify-center gap-1 sm:gap-2">
-                💻 <span className="hidden xs:inline">SKILLS</span><span className="xs:hidden">Skills</span>
-              </span>
+              💻 ทักษะ
             </button>
             <button
               onClick={() => setActiveTab('programs')}
-              className={`flex-1 px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 font-bold text-xs sm:text-sm md:text-base rounded-lg sm:rounded-xl transition-all duration-300 cursor-pointer ${activeTab === 'programs'
-                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-300/50 scale-105'
-                : 'text-gray-600 hover:text-indigo-600 hover:bg-white/50'
-                }`}
+              className={`px-7 py-2.5 font-semibold text-sm rounded-lg transition-all duration-200 ${
+                activeTab === 'programs'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+              }`}
             >
-              <span className="flex items-center justify-center gap-1 sm:gap-2">
-                🛠️ <span className="hidden xs:inline">TOOLS</span><span className="xs:hidden">Tools</span>
-              </span>
+              🛠️ เครื่องมือ
             </button>
           </div>
 
-          {/* Content Container */}
-          <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar">
-            {/* Skills Section */}
-            {activeTab === 'skills' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-                {skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="group relative bg-gradient-to-br from-white to-indigo-50/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 shadow-md sm:shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2 hover:scale-105 border border-indigo-100/50 overflow-hidden"
-                    style={{
-                      animationDelay: getAnimationDelay(index),
-                      animation: 'fadeIn 0.5s ease-in-out forwards'
-                    }}
-                  >
-                    {/* Decorative gradient */}
-                    <div className="absolute top-0 right-0 w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full blur-xl sm:blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                    
-                    <div className="relative z-10 flex items-start gap-2 sm:gap-3 md:gap-4">
-                      {/* Icon */}
-                      <div className="flex-shrink-0 bg-gradient-to-br from-white to-indigo-50 p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md group-hover:shadow-lg sm:group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-indigo-100">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center [&>svg]:!w-full [&>svg]:!h-full">
-                          {skill.icon}
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className='flex-1 min-w-0'>
-                        <div className="flex justify-between items-start mb-2 sm:mb-3 gap-2">
-                          <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-800 group-hover:text-indigo-700 transition-colors truncate">
-                            {skill.name}
-                          </h3>
-                          <span className={`${skill.color} font-semibold px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-xs bg-white shadow-sm sm:shadow-md border border-gray-100 whitespace-nowrap flex-shrink-0`}>
-                            {skill.level}
-                          </span>
-                        </div>
-
-                        {/* Progress bar */}
-                        <div className="relative w-full bg-gray-200/50 rounded-full h-2 sm:h-2.5 md:h-3 mb-1 sm:mb-2 overflow-hidden shadow-inner">
-                          <div
-                            className={`h-full rounded-full ${getLevelColor(skill.level)} relative overflow-hidden transition-all duration-1000 ease-out shadow-md sm:shadow-lg`}
-                            style={{ width: `${skill.percentage}%`, animationDelay: getAnimationDelay(index) }}
-                          >
-                            {/* Shimmer effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
-                          </div>
-                        </div>
-
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] sm:text-xs text-gray-500 font-medium">Progress</span>
-                          <span className="text-xs sm:text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                            {skill.percentage}%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Programs Section */}
-            {activeTab === 'programs' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-                {programs.map((program, index) => (
-                  <div
-                    key={index}
-                    className="group relative bg-gradient-to-br from-white to-purple-50/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 shadow-md sm:shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2 hover:scale-105 border border-purple-100/50 overflow-hidden"
-                    style={{
-                      animationDelay: getAnimationDelay(index),
-                      animation: 'fadeIn 0.5s ease-in-out forwards'
-                    }}
-                  >
-                    {/* Decorative gradient */}
-                    <div className="absolute top-0 right-0 w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-xl sm:blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                    
-                    <div className="relative z-10 flex items-start gap-2 sm:gap-3 md:gap-4">
-                      {/* Icon */}
-                      <div className="flex-shrink-0 bg-gradient-to-br from-white to-purple-50 p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl shadow-sm sm:shadow-md group-hover:shadow-lg sm:group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-purple-100">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center [&>svg]:!w-full [&>svg]:!h-full [&>img]:!w-full [&>img]:!h-full">
-                          {program.icon}
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className='flex-1 min-w-0'>
-                        <div className="flex justify-between items-start mb-2 sm:mb-3 gap-2">
-                          <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-800 group-hover:text-purple-700 transition-colors truncate">
-                            {program.name}
-                          </h3>
-                          <span className={`${program.color} font-semibold px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-xs bg-white shadow-sm sm:shadow-md border border-gray-100 whitespace-nowrap flex-shrink-0`}>
-                            {program.level}
-                          </span>
-                        </div>
-
-                        {/* Progress bar */}
-                        <div className="relative w-full bg-gray-200/50 rounded-full h-2 sm:h-2.5 md:h-3 mb-1 sm:mb-2 overflow-hidden shadow-inner">
-                          <div
-                            className={`h-full rounded-full ${getLevelColor(program.level)} relative overflow-hidden transition-all duration-1000 ease-out shadow-md sm:shadow-lg`}
-                            style={{ width: `${program.percentage}%`, animationDelay: getAnimationDelay(index) }}
-                          >
-                            {/* Shimmer effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
-                          </div>
-                        </div>
-
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] sm:text-xs text-gray-500 font-medium">Progress</span>
-                          <span className="text-xs sm:text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                            {program.percentage}%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {activeTab === 'skills'   && <CategorySection categories={skillCategories} />}
+          {activeTab === 'programs' && <CategorySection categories={toolCategories}  />}
 
         </div>
       </div>
-
-      {/* CSS for animations */}
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.5);
-          border-radius: 10px;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #6366f1, #8b5cf6);
-          border-radius: 10px;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #4f46e5, #7c3aed);
-        }
-      `}</style>
     </MainLayout>
   )
 }

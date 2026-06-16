@@ -76,17 +76,17 @@ const ClickableImage = ({ src, alt, className }) => {
 function Education() {
     return (
         <MainLayout>
-            <div className='min-h-screen py-12 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'>
+            <div className='min-h-screen py-6 sm:py-8 md:py-10 px-4 sm:px-5 md:px-6 lg:px-8 bg-gray-50'>
                 {/* Header */}
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+                <div className="mb-7 sm:mb-9">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
                         ประวัติการศึกษา
                     </h1>
-                    <div className="h-1.5 w-32 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full mx-auto shadow-lg"></div>
+                    <div className="h-0.5 w-14 bg-blue-600 rounded-full mt-3"></div>
                 </div>
                 
-                <div className='max-w-7xl mx-auto'>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div className='max-w-5xl mx-auto'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6'>
                     <Card className='group flex flex-col pb-0 bg-white/80 backdrop-blur-lg border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-200/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden relative'>
                         {/* Decorative gradient overlay */}
                         <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
@@ -128,8 +128,8 @@ function Education() {
                                     <span className="text-gray-700">วิศวกรรมคอมพิวเตอร์</span>
                                 </CardDescription>
                                 <CardDescription className="text-sm flex items-start gap-2">
-                                    <span className="font-bold text-indigo-600 min-w-fit">วันที่สำเร็จ:</span>
-                                    <span className="text-gray-700">31 มีนาคม 2568</span>
+                                    <span className="font-bold text-indigo-600 min-w-fit">ช่วงการศึกษา:</span>
+                                    <span className="text-gray-700">2565 - 2568</span>
                                 </CardDescription>
                                 <CardDescription className="text-sm flex items-start gap-2">
                                     <span className="font-bold text-indigo-600 min-w-fit">เกรดเฉลี่ย:</span>
@@ -180,16 +180,12 @@ function Education() {
                                     <span className="text-gray-700">ประกาศนียบัตรวิชาชีพขั้นสูง</span>
                                 </CardDescription>
                                 <CardDescription className="text-sm flex items-start gap-2">
-                                    <span className="font-bold text-purple-600 min-w-fit">แผนก:</span>
-                                    <span className="text-gray-700">แผนกไฟฟ้า</span>
+                                    <span className="font-bold text-purple-600 min-w-fit">สาขาวิชา:</span>
+                                    <span className="text-gray-700">ไฟฟ้ากำลัง</span>
                                 </CardDescription>
                                 <CardDescription className="text-sm flex items-start gap-2">
-                                    <span className="font-bold text-purple-600 min-w-fit">หลักสูตร:</span>
-                                    <span className="text-gray-700">อุตสาหกรรมการผลิตไฟฟ้า</span>
-                                </CardDescription>
-                                <CardDescription className="text-sm flex items-start gap-2">
-                                    <span className="font-bold text-purple-600 min-w-fit">วันที่สำเร็จ:</span>
-                                    <span className="text-gray-700">31 มีนาคม 2565</span>
+                                    <span className="font-bold text-purple-600 min-w-fit">ช่วงการศึกษา:</span>
+                                    <span className="text-gray-700">2563 - 2565</span>
                                 </CardDescription>
                                 <CardDescription className="text-sm flex items-start gap-2">
                                     <span className="font-bold text-purple-600 min-w-fit">เกรดเฉลี่ย:</span>

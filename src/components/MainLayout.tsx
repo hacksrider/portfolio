@@ -48,10 +48,10 @@ function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <>
-      <div className='flex flex-col md:flex-row bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'>
+      <div className='flex flex-col md:flex-row bg-gray-50'>
         {/* Mobile hamburger menu button */}
         <button 
-          className='md:hidden fixed top-4 left-4 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-3 shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-110' 
+          className='md:hidden fixed top-4 left-4 z-50 bg-blue-600 hover:bg-blue-700 rounded-xl p-3 shadow-lg transition-all duration-200' 
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -70,7 +70,7 @@ function MainLayout({ children }: MainLayoutProps) {
 
         {/* Sidebar - fixed on desktop, slide-in on mobile */}
         <div
-          className={`${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:block md:w-80 h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 fixed w-72 sm:w-80 z-40 transition-all duration-300 overflow-y-auto shadow-2xl`}
+          className={`${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:block md:w-72 xl:w-80 h-screen bg-gradient-to-b from-slate-900 to-slate-800 fixed w-72 z-40 transition-all duration-300 overflow-y-auto shadow-2xl`}
         >
           {/* Profile Section with Gradient Overlay */}
           <div className="relative pt-8 pb-6 px-6">
@@ -95,8 +95,8 @@ function MainLayout({ children }: MainLayoutProps) {
                 Kriattiphum Phokar
               </h1>
               <div className="h-1 w-16 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full mb-3"></div>
-              <p className='text-sm text-indigo-200 font-medium'>
-                R&D Engineer | Full-stack Developer
+              <p className='text-sm text-slate-300 font-medium'>
+                Programmer R&D · Full-stack
               </p>
             </div>
           </div>
@@ -115,8 +115,8 @@ function MainLayout({ children }: MainLayoutProps) {
                       w-full flex items-center gap-4 px-4 py-3.5 rounded-xl font-medium text-sm
                       transition-all duration-300 cursor-pointer group
                       ${isActive 
-                        ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/50 scale-105' 
-                        : 'text-indigo-100 hover:bg-white/10 hover:translate-x-1'
+                        ? 'bg-blue-600 text-white shadow-md' 
+                        : 'text-slate-300 hover:bg-white/10 hover:text-white'
                       }
                     `}
                     onClick={() => handleMenuClick(menu.name, menu.path)}
@@ -139,8 +139,8 @@ function MainLayout({ children }: MainLayoutProps) {
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-purple-900/50 to-transparent pointer-events-none"></div>
         </div>
 
-        {/* Main content - with left padding/margin to make space for fixed sidebar */}
-        <div className="w-full min-h-screen pt-16 md:pt-0 md:ml-80">
+        {/* Main content */}
+        <div className="w-full min-h-screen pt-16 md:pt-0 md:ml-72 xl:ml-80">
           <div className="w-full">
             {children}
           </div>

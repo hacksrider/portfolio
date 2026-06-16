@@ -55,35 +55,19 @@ function Certificate() {
 
   return (
     <MainLayout>
-      <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto">
+      <div className="min-h-screen py-6 sm:py-8 md:py-10 px-4 sm:px-5 md:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 relative">
-            {/* Decorative elements */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full blur-3xl opacity-30"></div>
-            
-            <div className="relative z-10">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  ใบรับรองวิชาชีพ
-                </span>
-              </h1>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full mx-auto shadow-lg mb-4"></div>
-              <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-                คอลเล็กชันใบรับรองที่แสดงความเชี่ยวชาญและการเรียนรู้อย่างต่อเนื่อง
-              </p>
-            </div>
+          <div className="mb-7 sm:mb-9">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
+              ใบรับรองวิชาชีพ
+            </h1>
+            <p className="text-gray-500 text-xs sm:text-sm mt-1.5">ใบรับรองที่ได้รับและการเรียนรู้เพิ่มเติม</p>
+            <div className="h-0.5 w-14 bg-blue-600 rounded-full mt-3"></div>
           </div>
           
           {/* Certificates Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {certificates.map((certificate, idx) => (
             <div
               key={certificate.id}
@@ -101,53 +85,47 @@ function Certificate() {
                   🏆 Certified
                 </div>
                 
-                <div className="relative h-56 bg-gradient-to-br from-indigo-50 to-purple-50 p-4">
+                <div className="relative h-44 sm:h-48 md:h-52 bg-gray-50 p-3">
                   <img
                     src={certificate.image}
                     alt={certificate.title}
-                    className="w-full h-full object-contain transform group-hover:scale-110 group-hover:rotate-2 transition-all duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl text-indigo-600 font-bold shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-300">
-                      คลิกเพื่อดู
-                    </span>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white/90 px-4 py-1.5 rounded-xl text-blue-700 font-semibold text-sm shadow">คลิกเพื่อดู</span>
                   </div>
                 </div>
               </div>
               
-              {/* Content Section */}
-              <div className="relative z-10 p-6">
-                <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 leading-tight min-h-[3.5rem]">
+              {/* Content */}
+              <div className="p-4 sm:p-5">
+                <h3 className="text-sm sm:text-base font-bold text-slate-800 mb-3 leading-snug min-h-[2.5rem]">
                   {certificate.title}
                 </h3>
                 
-                <div className="space-y-3 mb-5">
-                  <div className="flex items-center gap-3 bg-gradient-to-r from-indigo-50 to-purple-50 p-3 rounded-xl border border-indigo-100">
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
+                    <div className="shrink-0 w-6 h-6 bg-blue-600 rounded-md flex items-center justify-center">
+                      <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-2.328.996.356 1.06a1 1 0 00.95.68h1.268a1 1 0 00.95-.68l.356-1.06-2.328-.996a1 1 0 11.788-1.838l4 1.714a1 1 0 01.356.257l2.644-1.131a1 1 0 000-1.84l-7-3z" />
                       </svg>
                     </div>
-                    <span className="text-gray-700 font-medium text-sm">{certificate.issuer}</span>
+                    <span className="text-gray-700 text-xs sm:text-sm font-medium">{certificate.issuer}</span>
                   </div>
                   
-                  <div className="flex items-center gap-3 bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-xl border border-purple-100">
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
+                    <div className="shrink-0 w-6 h-6 bg-teal-600 rounded-md flex items-center justify-center">
+                      <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-gray-700 font-medium text-sm">{certificate.date}</span>
+                    <span className="text-gray-700 text-xs sm:text-sm font-medium">{certificate.date}</span>
                   </div>
                 </div>
                 
                 <button 
-                  className="w-full py-3 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-indigo-300/50 transform hover:scale-105"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openModal(certificate);
-                  }}
+                  className="w-full py-2 sm:py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold rounded-xl transition-colors"
+                  onClick={(e) => { e.stopPropagation(); openModal(certificate); }}
                 >
                   ดูใบรับรอง
                 </button>
